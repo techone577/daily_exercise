@@ -21,6 +21,7 @@ public class leetcode90 {
         }
     }
 
+    //wrong
     private void helper2(List<List<Integer>> res, List<Integer> bag, int pos, int[] nums) {
         if(pos>0)
         res.add(new LinkedList<>(bag));
