@@ -10,6 +10,9 @@ package Algorithm;
  * 示例 3:
  * 输入: [7,8,9,11,12]
  * 输出: 1
+ *
+ * 下标i存储i+1，若为负数或超出数组长度则位置不变
+ * 找出第一个nums[i] != i+1即为所解
  */
 public class leetcode41 {
     public int firstMissingPositive(int[] nums) {

@@ -1,5 +1,8 @@
 package Algorithm;
 
+/**
+ * 给定一个未经排序的整数数组，找到最长且连续的的递增序列。
+ */
 public class leetcode674 {
     public int findLengthOfLCIS(int[] nums) {
         if(nums.length==0)

@@ -2,7 +2,15 @@ package Algorithm;
 
 import java.util.*;
 
-
+/**
+ *
+ * 给一非空的单词列表，返回前 k 个出现次数最多的单词。
+ * 返回的答案应该按单词出现频率由高到低排序。如果不同的单词有相同出现频率，按字母顺序排序。
+ *
+ * 放到map中按次数排序再按字典序排序
+ * 重写比较器，可以这么写Comparator.comparing(Map.Entry<String,Integer>::getValue)
+ * 但是感觉不灵活，也不好用
+ */
 public class leetcode692 {
     public  List<String> topKFrequent (String[] words, int k) {
         if (words.length == 0)
@@ -19,8 +27,10 @@ public class leetcode692 {
         Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
             @Override
             public int compare (Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                //次数不相等按次数排序
                 if(o1.getValue()!=o2.getValue())
                     return o1.getValue().compareTo(o2.getValue());
+                //相等按字典序排序
                 else
                     return -o1.getKey().compareTo(o2.getKey());
             }

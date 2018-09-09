@@ -3,6 +3,12 @@ package Algorithm;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * 给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+ * candidates 中的数字可以无限制重复被选取。
+ *
+ * dfs即可
+ */
 public class leetcode39 {
     public List<List<Integer>> combinationSum (int[] candidates, int target) {
         List<List<Integer>> res = new LinkedList<>();

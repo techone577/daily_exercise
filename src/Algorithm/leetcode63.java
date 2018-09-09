@@ -33,6 +33,10 @@ public class leetcode63 {
     }
 
     //O(m)空间复杂度
+
+    /**
+     *要注意的是因为有可能存在障碍物，所以i或j为0时不再是总为1了
+     */
     public static int uniquePathWithObstacles2 (int[][] obstacleGrid) {
         if (obstacleGrid[0][0] == 1) {
             return 0;

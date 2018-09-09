@@ -1,5 +1,13 @@
 package Algorithm;
 
+/**
+ * 根据一棵树的前序遍历与中序遍历构造二叉树
+ * 注意:
+ * 你可以假设树中没有重复的元素。
+ *
+ * 递归构建
+ */
+
 public class leetcode105 {
     /**
      * Definition for a binary tree node.
@@ -26,6 +34,7 @@ public class leetcode105 {
                 break;
             }
         }
+        //这个preE要算准确
         res.left = helper(preorder, preS + 1, preS + pos-inS, inorder, inS, pos - 1);
         res.right = helper(preorder, preS + pos-inS+1, preE, inorder, pos + 1, inE);
         return res;

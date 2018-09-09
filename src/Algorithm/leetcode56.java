@@ -12,6 +12,8 @@ import java.util.*;
  * 输入: [[1,4],[4,5]]
  * 输出: [[1,5]]
  * 解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。
+ *
+ * 按照左边界排序，然后两两合并
  */
 public class leetcode56 {
     public static class Interval {

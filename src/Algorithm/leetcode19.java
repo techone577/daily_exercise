@@ -1,5 +1,13 @@
 package Algorithm;
 
+/**
+ *
+ * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+ * 一趟扫描
+ * 两个指针，一个先走n步，然后两个指针同时走，第一个指针到末尾，第二个指针的位置就是倒数第n个节点
+ *
+ */
+
 public class leetcode19 {
 
     public ListNode removeNthFromEnd (ListNode head, int n) {

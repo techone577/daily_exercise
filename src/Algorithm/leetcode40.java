@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ *
+ * 给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+ * candidates 中的每个数字在每个组合中只能使用一次。
+ *
+ * 先排序，再去重
+ */
 public class leetcode40 {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 
@@ -37,6 +44,7 @@ public class leetcode40 {
             return;
         else {
             for (int i = pos; i < nums.length; i++) {
+                //去重
                 if (i > pos && nums[i] == nums[i - 1]) continue;
                 bag.add(nums[i]);
                 helper(nums, target-nums[i], i + 1, res, bag);
