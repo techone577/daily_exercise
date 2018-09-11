@@ -13,37 +13,40 @@ public class leetcode93 {
     public List<String> restoreIpAddresses (String s) {
         StringBuilder str = new StringBuilder(s);
         List<String> res = new ArrayList<>();
-        helper(res, str, new StringBuilder(), 0, 1);
+        if(s.length()<4 || s.length()>12)
+            return res;
+        helper(res, s, new String(), 0, 1);
         return res;
     }
 
-    private void helper (List<String> res, StringBuilder str, StringBuilder bag, int pos, int depth) {
-        if (depth == 4 && isValid(str, pos, str.length() - 1) != null) {
-            res.add(new StringBuilder(bag).toString());
+    private void helper (List<String> res, String s, String str, int pos, int depth) {
+        if (depth > 3) {
+            String seg = s.substring(pos);
+            if (isValid(seg)) {
+                str = str + seg;
+                res.add(str);
+            }
             return;
         }
-        for (int i = 0; i < 3; i++) {
-            String num = isValid(str, pos, i);
-            if (num != null) {
-                StringBuilder temp = new StringBuilder(bag);
-                bag.append(num + '.');
-                helper(res, str, bag, pos + i + 1, depth + 1);
-                bag = temp;
+        for (int i = 1; i <= 3 && pos + i < s.length(); i++) {
+            //important
+            String seg = s.substring(pos, pos + i);
+            if (isValid(seg)) {
+                helper(res, s, str + seg + ".", pos + i, depth + 1);
             }
         }
     }
 
-    private String isValid (StringBuilder stringBuilder, int start, int end) {
-        if (start < end)
-            return null;
-        StringBuilder temp = new StringBuilder(stringBuilder.substring(start, end+1));
-        int ipNum = Integer.valueOf(temp.toString());
+    private boolean isValid (String seg) {
+        if(seg.charAt(0) == '0' && seg.length()>1)
+            return false;
+        int ipNum = Integer.valueOf(seg);
         if (0 <= ipNum && ipNum <= 255)
-            return String.valueOf(ipNum);
-        return null;
+            return true;
+        return false;
     }
 
     public static void main (String[] args) {
-        new leetcode93().restoreIpAddresses("25525511135");
+        new leetcode93().restoreIpAddresses("010010");
     }
 }
