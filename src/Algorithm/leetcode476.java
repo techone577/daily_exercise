@@ -9,11 +9,15 @@ import java.util.TreeMap;
  * 你可以假定二进制数不包含前导零位。
  *
  * 对二进制取反，其实就是与相同位数全为1的二进制异或
- * Integer.highestOneBit(n),比如n二进制位1100，则计算出的结果为10000，所以全为1用前面所求的值-1即可
+ * Integer.highestOneBit(n),比如n二进制位1100，则计算出的结果为1000，所以全为1用前面所求的值-1即可
  */
 public class leetcode476 {
     public static int findComplement (int num) {
         int mask = (Integer.highestOneBit(num) << 1) - 1;
+//        System.out.println((~num)<<(32-3)>>>(32-3));
+//        System.out.println(Integer.toBinaryString(num));
+//        System.out.println(Integer.toBinaryString(num>>1));
+//        System.out.println(Integer.toBinaryString(num|num>>1));
         return mask ^ num;
     }
 
