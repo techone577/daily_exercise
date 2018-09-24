@@ -47,7 +47,7 @@ public class leetcode336 {
         }
         return res;
     }
-
+    //AC
     public List<List<Integer>> solution (String[] words) {
         Map<String, Integer> map = new HashMap<>();
         for (int i = 0; i < words.length; i++) {
